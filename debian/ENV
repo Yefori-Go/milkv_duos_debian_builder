@@ -1,0 +1,8 @@
+export BOARD=milkv-duos-sd
+export CONFIG=cv1813h_milkv_duos_sd
+
+export DISTRO="sid"
+export BASE_URL="http://ftp.debian.org/debian"
+export ROOTPW=${ROOTPW:-milkv}
+
+export ROOTFS_SIZE="1G"

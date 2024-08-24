@@ -1,0 +1,31 @@
+name: Build DuoS Debian SD Image
+on:
+  workflow_dispatch:
+
+jobs:
+  build-image:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Into Repo
+        uses: actions/checkout@v4
+      - name: Build Image
+        run: |
+          bash run.sh
+      - name: Pack Image
+        run: |
+          cd out/
+          ls -lah
+          IMAGE=$(find . -type f -name "*.img" | head -n 1)
+          if [[ -n "$IMAGE" ]]; then
+            gzip "$IMAGE"
+            echo "PACKAGE=${{ github.workspace }}/out/$(basename "$IMAGE").gz" >> $GITHUB_ENV
+          else
+            echo "No image found."
+            exit 1
+          fi
+      - name: Upload Image
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: image-files
+          path: ${{env.PACKAGE}}
