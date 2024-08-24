@@ -33,7 +33,7 @@ RUN tar -xf host-tools.tar.gz
 RUN rm host-tools.tar.gz
 
 RUN sed -i '/image rootfs.ext4 {/,/}/s/size = .*/size = 1G/' /duo-buildroot-sdk/device/*/genimage.cfg
-COPY bootstrap.sh /.
+COPY debian/bootstrap.sh /.
 
 RUN apt-get clean
 RUN rm -rf /var/cache/apt/
