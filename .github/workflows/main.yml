@@ -9,6 +9,7 @@ jobs:
       - name: Get Into Repo
         uses: actions/checkout@v4
       - name: Build Image
+        uses: addnab/docker-run-action@v3
         with:
             image: ghcr.io/yefori-go/milkv_duos_debian_builder:main
             options: --privileged -e BOARD=milkv-duos-sd -e CONFIG=cv1813h_milkv_duos_sd -e ROOTPW=milkv -v ${{ github.workspace }}/debian:/build -v ${{ github.workspace }}/out:/duo-buildroot-sdk/install
