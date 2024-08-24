@@ -10,7 +10,7 @@ jobs:
         uses: actions/checkout@v4
       - name: Build Image
         run: |
-          bash run.sh
+          ./run.sh
       - name: Pack Image
         run: |
           cd out/

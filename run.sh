@@ -8,14 +8,6 @@ ROOTPW=milkv
 
 source $TARGET_BUILDER/ENV
 
-# Check if the script is running as root
-if [ "$(id -u)" -ne 0 ]; then
-    # Not running as root, prompt for root password and rerun the script
-    echo "This script needs to run with root privileges."
-    sudo "$0" "$@"
-    exit $?
-fi
-
 docker build $TARGET_BUILDER -t builder
 
 if [ -d "out" ]; then
