@@ -1,6 +1,8 @@
 #!/bin/bash
-
+apt-get install mmdebstrap -y
 set -e
+
+PACKAGES="bluez wireless-regdb wpasupplicant ca-certificates debian-archive-keyring dosfstools binutils file tree bash-completion u-boot-menu openssh-server network-manager dnsmasq-base libpam-systemd ppp libengine-pkcs11-openssl iptables systemd-timesyncd vim usbutils parted exfatprogs systemd-sysv i2c-tools net-tools ethtool avahi-utils sudo gnupg rsync gpiod u-boot-tools libubootenv-tool"
 
 SPATH=$(dirname "$(realpath "$0")")
 
@@ -38,7 +40,8 @@ mkdir -p $ROOTFS
 
 # generate minimal bootstrap rootfs
 update-binfmts --enable
-debootstrap --exclude vim --arch=riscv64 --foreign $DISTRO $ROOTFS $BASE_URL
+# debootstrap --exclude vim --arch=riscv64 --foreign $DISTRO $ROOTFS $BASE_URL
+mmdebstrap -v --architectures=riscv64 --include="$(PACKAGES)" sid "$ROOTFS" "deb http://deb.debian.org/debian/ sid main"
 
 cp -rf /usr/bin/qemu-riscv64-static $ROOTFS/usr/bin/
 cp /bootstrap.sh $ROOTFS/.

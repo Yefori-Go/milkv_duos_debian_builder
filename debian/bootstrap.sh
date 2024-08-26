@@ -1,6 +1,6 @@
 #!/bin/bash
 
-/debootstrap/debootstrap --second-stage
+# /debootstrap/debootstrap --second-stage
 
 # Update sources
 cat >/etc/apt/sources.list <<EOF
