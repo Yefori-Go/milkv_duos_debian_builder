@@ -41,7 +41,7 @@ mkdir -p $ROOTFS
 # generate minimal bootstrap rootfs
 update-binfmts --enable
 # debootstrap --exclude vim --arch=riscv64 --foreign $DISTRO $ROOTFS $BASE_URL
-mmdebstrap -v --architectures=riscv64 --include="$(PACKAGES)" sid "$ROOTFS" "deb http://deb.debian.org/debian/ sid main"
+mmdebstrap -v --architectures=riscv64 --include="$PACKAGES" sid "$ROOTFS" "deb http://deb.debian.org/debian/ sid main"
 
 cp -rf /usr/bin/qemu-riscv64-static $ROOTFS/usr/bin/
 cp /bootstrap.sh $ROOTFS/.
