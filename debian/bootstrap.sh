@@ -4,10 +4,7 @@
 
 # Update sources
 cat >/etc/apt/sources.list <<EOF
-deb http://ftp.ports.debian.org/debian-ports sid main
-deb http://ftp.ports.debian.org/debian-ports unstable main
-deb http://ftp.ports.debian.org/debian-ports unreleased main
-deb http://ftp.ports.debian.org/debian-ports experimental main
+deb http://deb.debian.org/debian sid main non-free-firmware
 EOF
 
 
