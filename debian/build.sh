@@ -1,6 +1,7 @@
 #!/bin/bash
-apt-get install debian-archive-keyring mmdebstrap -y
+apt-get install debian-keyring debian-archive-keyring mmdebstrap -y
 update-ca-certificates
+apt-key update
 apt-get update
 set -e
 
