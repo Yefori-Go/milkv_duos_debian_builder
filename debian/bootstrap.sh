@@ -45,7 +45,7 @@ sysfs		/sys		sysfs	defaults	0	0
 EOF
 
 # set hostname
-echo "milkvduo-debian" > /etc/hostname
+echo "duos-debian" > /etc/hostname
 
 # enable root login through ssh
 sed -i "s/#PermitRootLogin.*/PermitRootLogin yes/g" /etc/ssh/sshd_config

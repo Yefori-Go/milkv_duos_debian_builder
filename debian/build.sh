@@ -1,5 +1,6 @@
 #!/bin/bash
 apt-get install debian-archive-keyring mmdebstrap -y
+update-ca-certificates
 apt-get update
 set -e
 
@@ -49,7 +50,7 @@ cp /bootstrap.sh $ROOTFS/.
 
 # chroot into the rootfs we just created
 echo "==========  CHROOT $ROOTFS =========="
-chroot $ROOTFS /bin/bash /bootstrap.sh --second-stage --exclude vim
+chroot $ROOTFS qemu-riscv64-static /bin/sh /bootstrap.sh
 echo "========== EXIT CHROOT =========="
 
 rm $ROOTFS/bootstrap.sh
