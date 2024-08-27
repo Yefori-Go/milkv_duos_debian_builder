@@ -18,7 +18,7 @@ RUN apt-get update \
 RUN apt install -y pkg-config build-essential ninja-build automake autoconf libtool wget curl git gcc libssl-dev bc slib squashfs-tools android-sdk-libsparse-utils jq python3-distutils scons parallel tree python3-dev python3-pip device-tree-compiler ssh cpio fakeroot libncurses5 flex bison libncurses5-dev genext2fs rsync unzip dosfstools mtools tcl openssh-client cmake expect
 
 #Required for debian build
-RUN apt install -y debian-archive-keyring mmdebstrap qemu qemu-user-static binfmt-support dpkg-cross  --no-install-recommends
+RUN apt install -y debian-archive-keyring mmdebstrap qemu qemu-user-static qemu-user-static-binfmt arch-test binfmt-support dpkg-cross  --no-install-recommends
 
 RUN update-ca-certificates
 
