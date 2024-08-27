@@ -1,5 +1,5 @@
 # Use an Ubuntu base image
-FROM ubuntu:22.04
+FROM ubuntu:22.04 as builder
 
 ARG BOARD=milkv-duos-sd
 ENV BOARD=${BOARD}
@@ -38,5 +38,9 @@ COPY debian/bootstrap.sh /.
 RUN apt-get clean
 RUN rm -rf /var/cache/apt/
 
-#Default to a bash session. 
-CMD bash
+
+
+FROM builder as builder_image
+WORKDIR /duo-buildroot-sdk
+
+CMD /bin/bash
