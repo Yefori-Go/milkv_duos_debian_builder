@@ -16,6 +16,8 @@ jobs:
             run: |
               bash /build/build.sh
               chmod 777 /duo-buildroot-sdk/install
+              chmod 777 /duo-buildroot-sdk/install/soc_cv1813h_milkv_duos_sd
+              chmod 777 /duo-buildroot-sdk/install/soc_cv1813h_milkv_duos_sd/*.img
       - name: Pack Image
         run: |
           cd out/
