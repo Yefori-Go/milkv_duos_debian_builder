@@ -14,11 +14,7 @@ EOF
 # update and install some packages
 apt-get update
 apt-get install -y util-linux haveged openssh-server systemd kmod initramfs-tools conntrack ebtables ethtool iproute2 iptables mount socat ifupdown iputils-ping neofetch sudo chrony pciutils
-
-# optional zram
-apt install -y zram-config
 dpkg --configure -a
-systemctl enable zram-config
 unset DEBIAN_FRONTEND DEBCONF_NONINTERACTIVE_SEEN
 
 # Create base config files
