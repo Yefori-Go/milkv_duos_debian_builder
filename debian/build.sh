@@ -1,5 +1,4 @@
 #!/bin/bash
-apt-get install debian-keyring debian-archive-keyring mmdebstrap -y
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 0E98404D386FA1D9
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 6ED0E7B82643E131
 update-ca-certificates

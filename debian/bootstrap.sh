@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# /debootstrap/debootstrap --second-stage
-
 # Update sources
 cat >/etc/apt/sources.list <<EOF
 deb http://deb.debian.org/debian sid main non-free-firmware
