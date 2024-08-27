@@ -11,7 +11,7 @@ ENV BUILD_OUTPUT=/build-output
 RUN apt-get update \
     && apt-get install -y \
     wget git make build-essential libtool rsync \
-    ca-certificates joe --no-install-recommends
+    ca-certificates gnupg joe --no-install-recommends
 
 
 #Requied for duo-buildroot-sdk
