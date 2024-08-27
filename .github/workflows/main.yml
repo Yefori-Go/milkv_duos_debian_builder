@@ -24,8 +24,10 @@ jobs:
           ls -lah
           IMAGE=$(find . -type f -name "*.img" | head -n 1)
           if [[ -n "$IMAGE" ]]; then
-            gzip "$IMAGE"
-            echo "PACKAGE=${{ github.workspace }}/out/$(basename "$IMAGE").gz" >> $GITHUB_ENV
+            IMAGE_BASENAME=$(basename "$IMAGE")
+            mv "$IMAGE" .
+            gzip "$IMAGE_BASENAME"
+            echo "PACKAGE=${{ github.workspace }}/out/"$IMAGE_BASENAME".gz" >> $GITHUB_ENV
           else
             echo "No image found."
             exit 1
