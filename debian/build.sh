@@ -6,7 +6,7 @@ apt-key update
 apt-get update
 set -e
 
-PACKAGES="bluez wireless-regdb wpasupplicant ca-certificates debian-archive-keyring dosfstools binutils file tree bash-completion u-boot-menu openssh-server network-manager dnsmasq-base libpam-systemd ppp libengine-pkcs11-openssl iptables systemd-timesyncd vim usbutils parted exfatprogs systemd-sysv i2c-tools net-tools ethtool avahi-utils sudo gnupg rsync gpiod u-boot-tools libubootenv-tool awk libc6 libtinfo6 libacl1 libattr1 libgmp10 libselinux1 libssl3t64 libbz2 liblzma5 libmd0 libzstd1 zlib1g libpcre2-8-0  libcrypt1 libpam-modules-bin debconf libpam0g libdb5.3t64 libaudit1 libsystemd0 dpkg libacl1 libpam-modules libpam-runtime libblkid1 libcap-ng0 libmount1 libsmartcols1 libudev1 libuuid1"
+PACKAGES="bluez wireless-regdb wpasupplicant ca-certificates debian-archive-keyring dosfstools binutils file tree bash-completion u-boot-menu openssh-server network-manager dnsmasq-base libpam-systemd ppp libengine-pkcs11-openssl iptables systemd-timesyncd vim usbutils parted exfatprogs systemd-sysv i2c-tools net-tools ethtool avahi-utils sudo gnupg rsync gpiod u-boot-tools libubootenv-tool gawk libc6 libtinfo6 libacl1 libattr1 libgmp10 libselinux1 libssl3t64 bzip2 liblzma5 libmd0 libzstd1 zlib1g libpcre2-8-0  libcrypt1 libpam-modules-bin debconf libpam0g libdb5.3t64 libaudit1 libsystemd0 dpkg libacl1 libpam-modules libpam-runtime libblkid1 libcap-ng0 libmount1 libsmartcols1 libudev1 libuuid1"
 
 SPATH=$(dirname "$(realpath "$0")")
 
