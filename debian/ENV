@@ -5,4 +5,4 @@ export DISTRO="sid"
 export BASE_URL="http://ftp.debian.org/debian"
 export ROOTPW=${ROOTPW:-milkv}
 
-export ROOTFS_SIZE="1G"
+export ROOTFS_SIZE="2G"

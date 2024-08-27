@@ -1,10 +1,15 @@
 #!/bin/bash
-
+set -ex
+export DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true
+export LC_ALL=C LANGUAGE=C LANG=C
+mount proc -t proc /proc
+mount -B sys /sys
+mount -B run /run
+mount -B dev /dev
 # Update sources
 cat >/etc/apt/sources.list <<EOF
 deb http://deb.debian.org/debian sid main non-free-firmware
 EOF
-
 
 # update and install some packages
 apt-get update
@@ -12,7 +17,9 @@ apt-get install -y util-linux haveged openssh-server systemd kmod initramfs-tool
 
 # optional zram
 apt install -y zram-config
+dpkg --configure -a
 systemctl enable zram-config
+unset DEBIAN_FRONTEND DEBCONF_NONINTERACTIVE_SEEN
 
 # Create base config files
 mkdir -p /etc/network
