@@ -50,6 +50,19 @@ mmdebstrap -v --architectures=riscv64 --include="$PACKAGES" sid "$ROOTFS" "deb h
 cp -rf /usr/bin/qemu-riscv64-static $ROOTFS/usr/bin/
 cp /bootstrap.sh $ROOTFS/.
 
+mkdir -p /addons
+cd /addons
+# add aic8800-firmware
+echo "Installing aic8800-firmware for $BOARD"
+rm -rf aic8800-firmware
+git clone --depth 1 https://github.com/armbian/firmware.git aic8800-firmware
+mkdir -p $ROOTFS/lib/firmware/aic8800_sdio/aic8800/
+cp -a aic8800-firmware/aic8800/SDIO/aic8800/ $ROOTFS/lib/firmware/aic8800_sdio/
+# 	This is the DUOS firmware
+cp -a aic8800-firmware/aic8800/SDIO/aic8800D80/* $ROOTFS/lib/firmware/aic8800_sdio/aic8800/
+
+cd /duo-buildroot-sdk
+
 # chroot into the rootfs we just created
 echo "==========  CHROOT $ROOTFS =========="
 chroot $ROOTFS qemu-riscv64-static /bin/sh /bootstrap.sh
