@@ -32,7 +32,6 @@ RUN wget https://sophon-file.sophon.cn/sophon-prod-s3/drive/23/03/07/16/host-too
 RUN tar -xf host-tools.tar.gz
 RUN rm host-tools.tar.gz
 
-RUN sed -i '/image rootfs.ext4 {/,/}/s/size = .*/size = 1G/' /duo-buildroot-sdk/device/*/genimage.cfg
 COPY debian/bootstrap.sh /.
 
 RUN apt-get clean
